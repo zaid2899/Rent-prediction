@@ -54,6 +54,7 @@ The dataset was obtained for **educational and research purposes** only.
 - Regression-based models
 - Pipeline-based preprocessing
 - Cross-validation for performance evaluation
+- Hyperparameter tuning
 - Model persistence using `.pkl` file
 
 ---
@@ -64,9 +65,13 @@ The dataset was obtained for **educational and research purposes** only.
 - Root Mean Squared Error (RMSE)
 - Cross-validation score
 
+## Key changes
+- Removed area_rate which was the source of data leakage and caused overfitting.
+- Added hyperparameter tuning to estract best parameters.
+
 ---
 ## Best Performing model achieved:
-- **R² Score = 0.990408**
+- **R² Score = 0.8025**
 ## 👤 Author
 **Zaid Bin Altaf**
 
