@@ -67,11 +67,12 @@ The dataset was obtained for **educational and research purposes** only.
 
 ## Key changes
 - Removed area_rate which was the source of data leakage and caused overfitting.
+- Handled Outliers
 - Added hyperparameter tuning to estract best parameters.
 
 ---
 ## Best Performing model achieved:
-- **R² Score = 0.8025**
+- **R² Score = 0.7979**
 ## 👤 Author
 **Zaid Bin Altaf**
 
