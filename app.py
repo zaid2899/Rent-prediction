@@ -6,7 +6,7 @@ import pickle
 # ── Load model ──────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    with open('rent_model_final.pkl', 'rb') as f:
+    with open('rent_model_tuned.pkl', 'rb') as f:
         return pickle.load(f)
 
 model = load_model()
