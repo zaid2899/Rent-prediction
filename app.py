@@ -49,7 +49,7 @@ with col1:
     furnishing = st.selectbox("Furnishing", FURNISHING)
 
 with col2:
-    area = st.number_input("Area (sq ft)", min_value=100.0, max_value=10000.0, value=1000, step=50)
+    area = st.number_input("Area (sq ft)", min_value=100.0, max_value=10000.0, value=1000.0, step=10.0)
     bhk = st.number_input("BHK", min_value=1, max_value=6, value=2)
     bathrooms = st.number_input("Bathrooms", min_value=1, max_value=6, value=2)
     balconies = st.number_input("Balconies", min_value=0, max_value=4, value=1)
@@ -61,9 +61,9 @@ if st.button("Predict Rent", type="primary", use_container_width=True):
     
     # Build input dataframe — column names must exactly match training data
     input_data = pd.DataFrame([{
-        'City': city,
+        'city': city,
         'locality': locality,
-        'house_type': house_type,
+        'House_Type': house_type,
         'furnishing': furnishing,
         'area': area,
         'bhk': bhk,
