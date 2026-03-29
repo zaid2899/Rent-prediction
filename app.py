@@ -3,6 +3,13 @@ import pandas as pd
 import numpy as np
 import pickle
 
+# ── Page config ──────────────────────────────────────────────
+st.set_page_config(
+    page_title="Metro Rent Predictor",
+    page_icon="🏙️",
+    layout="centered"
+)
+
 # ── Load model ──────────────────────────────────────────────
 @st.cache_resource
 def load_model():
@@ -26,12 +33,7 @@ LOCALITIES = {
 FURNISHING = ['Furnished', 'Semi-Furnished', 'Unfurnished']  # replace with actual values
 HOUSE_TYPE = ['Flat', 'House', 'Villa']     # replace with actual values
 
-# ── Page config ──────────────────────────────────────────────
-st.set_page_config(
-    page_title="Metro Rent Predictor",
-    page_icon="🏙️",
-    layout="centered"
-)
+
 
 st.title("🏙️ Metro City Rent Predictor")
 st.markdown("Estimate monthly rent for residential properties across 5 Indian metro cities.")
