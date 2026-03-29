@@ -1,1 +1,3 @@
-pip show scikit-learn
+```
+python-3.13.5
+```
