@@ -9,6 +9,7 @@ The project follows an end-to-end machine learning workflow including:
 - Data preprocessing and feature transformation
 - Model training using regression algorithms
 - Model evaluation using R² score and cross-validation
+- Hyperparameter tuning
 - Saving the trained pipeline for future predictions
 
 ---
@@ -72,7 +73,12 @@ The dataset was obtained for **educational and research purposes** only.
 
 ---
 ## Best Performing model achieved:
-- **R² Score = 0.7979**
+- **R² Score = 0.78**
+
+## 🚀 Live Demo
+[Metro City Rent Predictor](https://rent-prediction-ib6uec4lrm9mv8gfeug9uo.streamlit.app)
+```
+
 ## 👤 Author
 **Zaid Bin Altaf**
 
