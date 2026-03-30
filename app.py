@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
+import joblib
 
 # ── Page config ──────────────────────────────────────────────
 st.set_page_config(
@@ -13,8 +13,7 @@ st.set_page_config(
 # ── Load model ──────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    with open('rent_model_final.pkl', 'rb') as f:
-        return pickle.load(f)
+    return joblib.load('rent_model_final.joblib')
 
 model = load_model()
 
