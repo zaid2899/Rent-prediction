@@ -1,83 +1,91 @@
-# 🏠 House Rent Prediction Using Machine Learning
+# 🏙️ Metro City Rent Predictor
+
+## 🚀 Live Demo
+[Try the app](https://rent-prediction-ib6uec4lrm9mv8gfeug9uo.streamlit.app)
+
+---
 
 ## 📌 Project Overview
-This project focuses on predicting **house rent prices** using machine learning regression techniques.  
-The objective is to analyze rental property data, perform effective preprocessing, and build a reliable prediction model using Python and scikit-learn.
-
-The project follows an end-to-end machine learning workflow including:
-- Exploratory Data Analysis (EDA)
-- Data preprocessing and feature transformation
-- Model training using regression algorithms
-- Model evaluation using R² score and cross-validation
-- Hyperparameter tuning
-- Saving the trained pipeline for future predictions
+An end-to-end machine learning project that predicts monthly residential 
+rent across 5 Indian metro cities. Built with Python and scikit-learn, 
+deployed via Streamlit Cloud.
 
 ---
 
-## 📊 Dataset Used
-The dataset contains information related to rental properties, including both numerical and categorical features.
-
-### Common features include:
-- Location
-- City
-- Size or area of the house
-- Number of bedrooms,bathrooms,balconies
-- Furnishing status
-- House details
-- area rate (rent/area)
-
-### Target Variable:
-- **Rent** (log-transformed using `log1p` to improve model performance)
+## 🏙️ Cities Covered
+| City | Training Samples | Reliability |
+|------|-----------------|-------------|
+| New Delhi | 1,753 | High |
+| Bangalore | 1,698 | High |
+| Pune | 1,756 | High |
+| Mumbai | 1,530 | High |
+| Nagpur | 594 | Moderate |
 
 ---
 
-## 🌐 Dataset Source
-The dataset used in this project is publicly available and commonly used for machine learning practice.
+## 📊 Dataset
+- **Source:** Kaggle — India House Rent Prediction
+- **Size:** 7,537 rows after cleaning
+- **Target:** Monthly rent (log-transformed with log1p)
+- **Rent range:** ₹5,000 – ₹1,80,000/month
+  (properties above ₹1,80,000 capped — dataset contained
+  extreme outliers up to ₹27,00,000 likely from data entry errors)
 
-**Source:**  
-📌 Kaggle – *India House Rent Prediction*  
-
-The dataset was obtained for **educational and research purposes** only.
+### Features used:
+- City, Locality, House Type, Furnishing Status
+- Area (sq ft), BHK, Bathrooms, Balconies
 
 ---
 
-## ⚙️ Technologies Used
-- Python
-- NumPy
-- Pandas
+## 🤖 Model Iteration History
+
+| Version | R² Score | MAE | Notes |
+|---------|----------|-----|-------|
+| v1 | 0.990 | — | Inflated — data leakage via area_rate feature |
+| v2 | 0.782 | ₹17,339 | Clean baseline — leakage removed |
+| v3 | 0.78 | ₹13,581 | Random Forest on clipped + filtered data |
+
+### Why v1 scored 0.99 — and why that was wrong
+The original model included `area_rate` (rent ÷ area) as a feature —
+a direct mathematical derivative of the target variable. This caused
+the model to recover rent algebraically rather than learn genuine
+market patterns. After removing this feature, R² reflects true
+predictive performance.
+
+---
+
+## ⚙️ Tech Stack
+- Python, Pandas, NumPy
+- Scikit-learn (Pipeline, GradientBoostingRegressor, RandomizedSearchCV)
 - Matplotlib / Seaborn
-- Scikit-learn
+- Streamlit
 - Jupyter Notebook
 
 ---
 
-## 🤖 Machine Learning Approach
-- Regression-based models
-- Pipeline-based preprocessing
-- Cross-validation for performance evaluation
-- Hyperparameter tuning
-- Model persistence using `.pkl` file
+## 📈 Model Performance
+- **Algorithm:** Random Forest Regressor
+- **R² Score:** 0.78
+- **MAE:** ₹13,581
+- **Validation:** Train/test split (80/20, random_state=42)
+- **Target transform:** log1p applied to Rent
 
 ---
 
-## 📈 Evaluation Metrics
-- R² Score
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- Cross-validation score
-
-## Key changes
-- Removed area_rate which was the source of data leakage and caused overfitting.
-- Handled Outliers
-- Added hyperparameter tuning to estract best parameters.
+## ⚠️ Known Limitations
+- Covers 5 cities only — not a pan-India predictor
+- Predictions less reliable for Nagpur (fewer training samples)
+- Static dataset — does not reflect real-time market prices
+- Higher error for properties above ₹1,00,000/month
 
 ---
-## Best Performing model achieved:
-- **R² Score = 0.78**
 
-## 🚀 Live Demo
-[Metro City Rent Predictor](https://rent-prediction-ib6uec4lrm9mv8gfeug9uo.streamlit.app)
-```
+## 🗺️ Roadmap
+- [ ] Add metro distance feature (geopy)
+- [ ] Per-city MAE breakdown
+- [ ] Periodic retraining with fresh data
+
+---
 
 ## 👤 Author
 **Zaid Bin Altaf**
